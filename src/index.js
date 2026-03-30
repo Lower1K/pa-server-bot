@@ -8,7 +8,7 @@
  * Learn more at https://developers.cloudflare.com/workers/
  */
 
-import { handleDiscordRequest } from "./discord";
+import { handleDiscordRequest } from "./discordRequest";
 
 export default {
   async fetch(request, env, ctx) {
