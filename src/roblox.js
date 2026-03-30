@@ -1,45 +1,66 @@
-/**
- * Reach out to the reddit API, and get the first page of results from
- * r/aww. Filter out posts without readily available images or videos,
- * and return a random result.
- * @returns The url of an image or video which is cute.
- */
- /*
-export async function getCuteUrl() {
-  const response = await fetch(redditUrl, {
+// src/roblox.js
+
+// 🔹 Get user ID from username
+export async function getUserId(username) {
+  const res = await fetch("https://users.roblox.com/v1/usernames/users", {
+    method: "POST",
     headers: {
-      'User-Agent': 'justinbeckwith:awwbot:v1.0.0 (by /u/justinblat)',
+      "Content-Type": "application/json",
     },
+    body: JSON.stringify({
+      usernames: [username],
+      excludeBannedUsers: true,
+    }),
   });
-  if (!response.ok) {
-    let errorText = `Error fetching ${response.url}: ${response.status} ${response.statusText}`;
-    try {
-      const error = await response.text();
-      if (error) {
-        errorText = `${errorText} \n\n ${error}`;
-      }
-    } catch {
-      // ignore
-    }
-    throw new Error(errorText);
+
+  const data = await res.json();
+
+  if (!data.data || data.data.length === 0) {
+    return null;
   }
-  const data = await response.json();
-  const posts = data.data.children
-    .map((post) => {
-      if (post.is_gallery) {
-        return '';
-      }
-      return (
-        post.data?.media?.reddit_video?.fallback_url ||
-        post.data?.secure_media?.reddit_video?.fallback_url ||
-        post.data?.url
-      );
-    })
-    .filter((post) => !!post);
-  const randomIndex = Math.floor(Math.random() * posts.length);
-  const randomPost = posts[randomIndex];
-  return randomPost;
+
+  return data.data[0].id;
 }
 
-export const redditUrl = 'https://www.reddit.com/r/aww/hot.json';
-*/
+// 🔹 Get presence (online / in game)
+export async function getUserPresence(userId) {
+  const res = await fetch("https://presence.roblox.com/v1/presence/users", {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify({
+      userIds: [userId],
+    }),
+  });
+
+  const data = await res.json();
+
+  return data.userPresences?.[0] || null;
+}
+
+// 🔹 Combined helper
+export async function getUserStatus(username) {
+  const userId = await getUserId(username);
+
+  if (!userId) {
+    return {
+      error: "User not found",
+    };
+  }
+
+  const presence = await getUserPresence(userId);
+
+  if (!presence) {
+    return {
+      error: "Could not fetch presence",
+    };
+  }
+
+  return {
+    status: presence.userPresenceType, // 0=offline, 1=online, 2=in game
+    placeId: presence.placeId,
+    universeId: presence.universeId,
+    lastOnline: presence.lastOnline,
+  };
+}

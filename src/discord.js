@@ -56,6 +56,14 @@ export async function handleDiscordRequest(request, env) {
 			},
 		});
 	}
+	else if (commandName === "kevin-status") {
+		return Response.json({
+			type: 4,
+			data: {
+				content: kevinSpinBaddie ? "Kevin IS on 'Spin A Baddie'" : "Kevin is NOT on 'Spin A Baddie'",
+			},
+		});
+	}
 
     // Default fallback
     return Response.json({
