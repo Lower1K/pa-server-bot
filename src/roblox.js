@@ -54,7 +54,7 @@ export async function getUserStatus(username) {
         ? `${placeInfo.name} (Place ID: ${presence.placeId})`
         : `Place ID: ${presence.placeId}`;
     } else {
-      placeMessage = "a private or restricted game (place ID unavailable)";
+      placeMessage = "(Place ID unavailable)";
     }
   }
 
