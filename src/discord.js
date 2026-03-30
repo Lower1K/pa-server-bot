@@ -58,26 +58,26 @@ export async function handleDiscordRequest(request, env) {
 		});
 	}
 	else if (commandName === "kevin-status") {
-		const username = data.options?.[0]?.value;
+		const username = json.data.options?.[0]?.value;
 
 		if(!username) {
-			return {
+			return Response.json({
 				type: 4,
 				data: {
 					content: "Please provide a username.",
 				},
-			};
+			});
 		}
 
 		const result = await getUserStatus(username);
 
 		if (result.error) {
-			return {
+			return Response.json({
 				type: 4,
 				data: {
 					content: `Error: ${result.error}`,
 				},
-			};
+			});
 		}
 
 		let message = "";
@@ -96,12 +96,12 @@ export async function handleDiscordRequest(request, env) {
 				message = `${username} has unknown status.`;
 		}
 
-		return {
+		return Response.json({
 			type: 4,
 			data: {
 				content: message,
 			},
-		};
+		});
 	}
 
     // Default fallback
