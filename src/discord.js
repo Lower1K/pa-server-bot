@@ -11,8 +11,6 @@ export async function handleDiscordRequest(request, env) {
 
   const body = await request.text();
 
-  string kevinInfo = kevinStatus ? "Kevin IS on 'Spin A Baddie'" : "Kevin is NOT on 'Spin A Baddie'";
-
   const isValid = await verifyDiscordRequest(
     body,
     signature,
