@@ -8,8 +8,10 @@
  * Learn more at https://developers.cloudflare.com/workers/
  */
 
+import { handleDiscordRequest } from "./discord";
+
 export default {
-	async fetch(request, env, ctx) {
-		return new Response("Hello World!");
-	},
-};
+  async fetch(request, env, ctx) {
+    return handleDiscordRequest(request, env);
+  },
+};};
