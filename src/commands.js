@@ -28,5 +28,5 @@ export const KEVIN_COMMAND = {
 			type: 3, // STRING
 			required: true
 		}
-	]
+	],
 };
