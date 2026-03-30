@@ -82,7 +82,7 @@ export async function handleDiscordRequest(request, env) {
 
 		let message = "";
 
-		switch (result.status)
+		switch (result.status) {
 			case 0:
 				message = `${username} is offline.`;
 				break;
