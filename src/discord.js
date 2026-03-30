@@ -23,23 +23,39 @@ export async function handleDiscordRequest(request, env) {
 
   const json = JSON.parse(body);
 
-  // 🟣 Discord PING (required for endpoint validation)
+  // Discord PING (required for endpoint validation)
   if (json.type === 1) {
     return Response.json({ type: 1 });
   }
 
-  // 🟢 Slash command handler
+  // Slash command handler
   if (json.type === 2) {
     const commandName = json.data.name;
 
-    if (commandName === "hello") {
+    if (commandName === "test") {
       return Response.json({
         type: 4,
         data: {
-          content: "Hello from your Cloudflare Worker 👋",
+          content: "Hello world!",
         },
       });
     }
+	else if (commandName === "awwww") {
+		return Response.json({
+			type: 4,
+			data: {
+				content: "[Insert cute image here]",
+			},
+		});
+	}
+	else if (commandName === "invite") {
+		return Response.json({
+			type: 4,
+			data: {
+				content: "[Insert server invite here]",
+			},
+		});
+	}
 
     // Default fallback
     return Response.json({
