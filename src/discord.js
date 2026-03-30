@@ -1,4 +1,5 @@
 import { verifyDiscordRequest } from "./verify";
+import { getUserStatus } from "./roblox";
 
 export async function handleDiscordRequest(request, env) {
   if (request.method !== "POST") {
@@ -9,6 +10,8 @@ export async function handleDiscordRequest(request, env) {
   const timestamp = request.headers.get("x-signature-timestamp");
 
   const body = await request.text();
+
+  string kevinInfo = kevinStatus ? "Kevin IS on 'Spin A Baddie'" : "Kevin is NOT on 'Spin A Baddie'";
 
   const isValid = await verifyDiscordRequest(
     body,
@@ -57,12 +60,50 @@ export async function handleDiscordRequest(request, env) {
 		});
 	}
 	else if (commandName === "kevin-status") {
-		return Response.json({
+		const username = data.options?.[0]?.value;
+
+		if(!username) {
+			return {
+				type: 4,
+				data: {
+					content: "Please provide a username.",
+				},
+			};
+		}
+
+		const result = await getUserStatus(username);
+
+		if (result.error) {
+			return {
+				type: 4,
+				data: {
+					content: `Error: ${result.error}`,
+				},
+			};
+		}
+
+		let message = "";
+
+		switch (result.status)
+			case 0:
+				message = `${username} is offline.`;
+				break;
+			case 1:
+				message = `${username} is online.`;
+				break;
+			case 2:
+				message = `${username} is in a game! (Place ID: ${result.placeId})`;
+				break;
+			default:
+				message = `${username} has unknown status.`;
+		}
+
+		return {
 			type: 4,
 			data: {
-				content: kevinSpinBaddie ? "Kevin IS on 'Spin A Baddie'" : "Kevin is NOT on 'Spin A Baddie'",
+				content: message,
 			},
-		});
+		};
 	}
 
     // Default fallback

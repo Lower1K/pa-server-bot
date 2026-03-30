@@ -21,4 +21,12 @@ export const TEST_COMMAND = {
 export const KEVIN_COMMAND = {
 	name: 'kevin-status',
 	description: 'See what Kevin is currently up to on Roblox.',
-}
+	options: [
+		{
+			name: "username",
+			description: "Roblox username",
+			type: 3, // STRING
+			required: true
+		}
+	]
+};
