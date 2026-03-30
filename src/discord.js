@@ -90,7 +90,7 @@ export async function handleDiscordRequest(request, env) {
 				message = `${username} is online.`;
 				break;
 			case 2:
-				message = `${username} is in a game! (Place ID: ${result.placeId})`;
+				message = `${username} is in a game! ${result.placeMessage}`;
 				break;
 			default:
 				message = `${username} has unknown status.`;
