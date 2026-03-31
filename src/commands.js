@@ -22,3 +22,22 @@ export const KEVIN_COMMAND = {
 	name: 'kevin-status',
 	description: 'See what Kevin is currently up to on Roblox.',
 };
+
+export const LEAGUE_PLAYTIME = {
+	name: "league-playtime",
+	description: "Check League of Legends playtime",
+	options: [
+		{
+			name: "gamename",
+			description: "Riot Game name",
+			type: 3,
+			required: true,
+		},
+		{
+			name: "tagline",
+			description: "Riot tagline (e.g. NA1, EUW)",
+			type: 3,
+			required: true,
+		},
+	],
+};

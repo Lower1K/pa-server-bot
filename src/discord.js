@@ -1,5 +1,6 @@
 import { verifyDiscordRequest } from "./verify";
 import { getUserStatus } from "./roblox";
+import { getRiotStats } from "./league.js";
 
 export async function handleDiscordRequest(request, env) {
 	if (request.method !== "POST") {
@@ -40,67 +41,90 @@ export async function handleDiscordRequest(request, env) {
 					  content: "Hello world!",
 				  },
 			  });
-		  }
-		  else if (commandName === "awwww") {
-			  return Response.json({
-				  type: 4,
-				  data: {
-					  content: "[Insert cute image here]",
-				  },
-			  });
-		  }
-		  else if (commandName === "invite") {
-			  return Response.json({
-				  type: 4,
-				  data: {
-					  content: "[Insert server invite here]",
-				  },
-			  });
-		  }
-		  else if (commandName === "kevin-status") {
-			  // Gets Kevin's current Roblox status
-			  const result = await getUserStatus("Depsty1254");
-	
-			  if (result.error) {
-				  return Response.json({
-					  type: 4,
-					  data: {
-						  content: `Error: ${result.error}`,
-					  },
-				  });
-			  }
-	
-			  let message = "";
+		}
+		else if (commandName === "awwww") {
+			return Response.json({
+				type: 4,
+				data: {
+					content: "[Insert cute image here]",
+				},
+			});
+		}
+		else if (commandName === "invite") {
+			return Response.json({
+				type: 4,
+				data: {
+					content: "[Insert server invite here]",
+				},
+			});
+		}
+		else if (commandName === "kevin-status") {
+			// Gets Kevin's current Roblox status
+			const result = await getUserStatus("Depsty1254");
 
-			  switch (result.status) {
+			if (result.error) {
+				return Response.json({
+					type: 4,
+					data: {
+						content: `Error: ${result.error}`,
+					},
+				});
+			}
+
+			let message = "";
+
+			switch (result.status) {
 				case 0:
-					message = "Kevin is offline.";
+					message = "Kevin is not on Roblox.";
 					break;
 				case 1:
-					message = "Kevin is online.";
+					message = "Kevin is on Roblox.";
 					break;
 				case 2:
-					message = `Kevin is in a game! ${result.placeMessage}`;
+					message = `Kevin is in a Roblox game. ${result.placeMessage}`;
 					break;
 				default:
-					message = "Keving has an unknown status.";
-			  }
+					message = "Kevin has an unknown Roblox status.";
+			}
 
-			  return Response.json({
-				  type: 4,
-				  data: {
-					  content: message,
-				  },
-			  });
-		  }
+			return Response.json({
+				type: 4,
+				data: {
+					content: message,
+				},
+			});
+		}
+		else if (commandName === "league-playtime") {
+			const gameName = json.data.options?.find(o => o.name === "gamename")?.value;
+			const tagLine = json.data.options?.find(o => o.name === "tagline")?.value;
 
-		  // Default fallback
-		  return Response.json({
-			  type: 4,
-			  data: {
-				  content: `Unknown command: ${commandName}`,
-			  },
-		  });
+			const result = await getRiotStats(gameName, tagLine, env.RIOT_API_KEY);
+
+			if (result.error) {
+				return Response.json({
+					type: 4,
+					data: { content: `Error: ${result.error}` },
+				});
+			}
+
+			return Response.json({
+				type: 4,
+				data: {
+					content:
+					`${result.gameName}#${result.tagLine}\n` +
+					`Playtime (last ${result.matchesAnalyzed} games): ${result.totalHours} hours\n` +
+					`Record: ${result.wins}W - ${result.losses}L`,
+				},
+			});
+		}
+
+		// Default fallback
+		return Response.json({
+			type: 4,
+			data: {
+				content: `Unknown command: ${commandName}`,
+			},
+		});
 	}
 
 	return new Response("Unhandled interaction type", { status: 400 });
