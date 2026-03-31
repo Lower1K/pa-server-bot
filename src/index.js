@@ -11,7 +11,7 @@
 import { handleDiscordRequest } from "./discord";
 
 export default {
-  async fetch(request, env, ctx) {
-    return handleDiscordRequest(request, env);
-  },
+	async fetch(request, env, ctx) {
+		return handleDiscordRequest(request, env);
+	},
 };
