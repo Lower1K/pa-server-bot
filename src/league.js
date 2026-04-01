@@ -46,9 +46,12 @@ export async function getMatch(matchId, apiKey) {
 }
 
 // Main helper: get playtime + basic stats
-export async function getRiotStats(gameName, tagLine, apiKey) {
+export async function getRiotStats(gameName, apiKey) {
+	const tagLine = "NA1"; // Assumes the user is in NA
+
 	// Step 1: Get PUUID
 	const puuidRes = await getPUUID(gameName, tagLine, apiKey);
+	if (puuidRes.error) { puuidRes = await getPUUID(gameName, "NA", apiKey); }
 	if (puuidRes.error) return { error: puuidRes.error };
 
 	const puuid = puuidRes.puuid;

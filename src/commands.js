@@ -3,15 +3,6 @@
  * and registration.
  */
 
-export const AWW_COMMAND = {
-  name: 'awwww',
-  description: 'Drop some cuteness on this channel.',
-};
-
-export const INVITE_COMMAND = {
-  name: 'invite',
-  description: 'Get an invite link to add the bot to your server.',
-};
 
 export const TEST_COMMAND = {
 	name: 'test',
@@ -32,12 +23,11 @@ export const LEAGUE_PLAYTIME = {
 			description: "Riot Game name",
 			type: 3,
 			required: true,
-		},
-		{
-			name: "tagline",
-			description: "Riot tagline (e.g. NA1, EUW)",
-			type: 3,
-			required: true,
-		},
+		}
 	],
 };
+
+export const QUANG_COMMAND = {
+	name: "quang",
+	description: "QUANG!",
+}

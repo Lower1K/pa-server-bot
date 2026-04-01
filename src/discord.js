@@ -1,6 +1,6 @@
 import { verifyDiscordRequest } from "./verify";
 import { getUserStatus } from "./roblox";
-import { getRiotStats } from "./league.js";
+import { getRiotStats } from "./league";
 
 export async function handleDiscordRequest(request, env) {
 	if (request.method !== "POST") {
@@ -95,10 +95,9 @@ export async function handleDiscordRequest(request, env) {
 			});
 		}
 		else if (commandName === "league-playtime") {
-			const gameName = json.data.options?.find(o => o.name === "gamename")?.value;
-			const tagLine = json.data.options?.find(o => o.name === "tagline")?.value;
+			const gameName = json.data.options.find(o => o.name === "gamename").value;
 
-			const result = await getRiotStats(gameName, tagLine, env.RIOT_API_KEY);
+			const result = await getRiotStats(gameName, env.RIOT_API_KEY);
 
 			if (result.error) {
 				return Response.json({
@@ -114,6 +113,23 @@ export async function handleDiscordRequest(request, env) {
 					`${result.gameName}#${result.tagLine}\n` +
 					`Playtime (last ${result.matchesAnalyzed} games): ${result.totalHours} hours\n` +
 					`Record: ${result.wins}W - ${result.losses}L`,
+				},
+			});
+		}
+		else if (commandName === "quang") {
+			return Response.json({
+				type: 4,
+				data: {
+					embeds: [
+						{
+							title: "QUANG!",
+							// The original image of QUANG, straight from the website
+							image: {
+								url: "https://media.mapotic.com/cdn-cgi/image/metadata=none,width=400,height=266,fit=crop/https://media.mapotic.com/media/image/geo/3413/288392/oedr1f_cb0frq_8mvflm_05022015_ocearch_westernaustralia_0648_mc9zybs.jpg",
+							},
+							color: 0x00AE86,
+						},
+					],
 				},
 			});
 		}
