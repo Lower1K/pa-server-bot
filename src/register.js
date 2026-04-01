@@ -1,4 +1,4 @@
-import { TEST_COMMAND, KEVIN_COMMAND, LEAGUE_PLAYTIME, QUANG_COMMAND } from './commands.js';
+import { TEST_COMMAND, KEVIN_COMMAND, LEAGUE_PLAYTIME, QUANG_COMMAND, ERICK_COMMAND, KEANU_AATROX } from './commands.js';
 import dotenv from 'dotenv';
 import process from 'node:process';
 
@@ -30,7 +30,7 @@ const response = await fetch(url, {
 		Authorization: `Bot ${token}`,
 	},
 	method: 'PUT',
-	body: JSON.stringify([TEST_COMMAND, KEVIN_COMMAND, LEAGUE_PLAYTIME, QUANG_COMMAND]),
+	body: JSON.stringify([TEST_COMMAND, KEVIN_COMMAND, LEAGUE_PLAYTIME, QUANG_COMMAND, ERICK_COMMAND, KEANU_AATROX]),
 });
 
 if (response.ok) {

@@ -42,22 +42,6 @@ export async function handleDiscordRequest(request, env) {
 				  },
 			  });
 		}
-		else if (commandName === "awwww") {
-			return Response.json({
-				type: 4,
-				data: {
-					content: "[Insert cute image here]",
-				},
-			});
-		}
-		else if (commandName === "invite") {
-			return Response.json({
-				type: 4,
-				data: {
-					content: "[Insert server invite here]",
-				},
-			});
-		}
 		else if (commandName === "kevin-status") {
 			// Gets Kevin's current Roblox status
 			const result = await getUserStatus("Depsty1254");
@@ -130,6 +114,24 @@ export async function handleDiscordRequest(request, env) {
 							color: 0x00AE86,
 						},
 					],
+				},
+			});
+		}
+		else if (commandName === "erick") {
+			return Response.json({
+				type: 4,
+				data: {
+					// Minion laughing GIF
+					content: "https://images-ext-1.discordapp.net/external/tyYtJe4r4pZKCQjHqY8k5N5yfpH2MgqrZJ2tHy6yBHc/https/media.tenor.com/Heegf9LK-vIAAAPo/bahaha-lol.mp4",
+				},
+			});
+		}
+		else if (commandName === "keanu-aatrox") {
+			return Response.json({
+				type: 4,
+				data: {
+					// The creature
+					content: "https://media.discordapp.net/attachments/1251262347952128116/1450904311205728508/Aatrox_Keanu.png?ex=69cea8f0&is=69cd5770&hm=183093f08c309aec6d474ccd68ae98b9aaf9236e62012280f0ac96436ca7a904&=&format=webp&quality=lossless&width=720&height=960",
 				},
 			});
 		}

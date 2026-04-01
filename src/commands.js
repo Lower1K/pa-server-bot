@@ -31,3 +31,13 @@ export const QUANG_COMMAND = {
 	name: "quang",
 	description: "QUANG!",
 }
+
+export const ERICK_COMMAND = {
+	name: "erick",
+	description: "That's so Erick-core of you.",
+}
+
+export const KEANU_AATROX = {
+	name: "keanu-aatrox",
+	description: "You will do as an appetizer.",
+}
