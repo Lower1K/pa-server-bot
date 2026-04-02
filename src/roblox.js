@@ -25,7 +25,7 @@ export async function getUserPresence(userId) {
 }
 
 // Optional: fetch place info if available
-async function getPlaceInfo(universeId) {
+async function getGameInfo(universeId) {
 	if (!universeId) return null;
 
 	const res = await fetch(
