@@ -35,9 +35,7 @@ async function getGameInfo(universeId) {
 
 	const json = await res.json();
 
-	return data.data[0].name;// || null;
-
-	//return data.data?.[0] || null;
+	return data.data?.[0] || null;
 }
 
 // Combined helper with graceful place handling
