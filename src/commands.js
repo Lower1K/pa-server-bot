@@ -14,6 +14,7 @@ export const KEVIN_COMMAND = {
 	description: 'See what Kevin is currently up to on Roblox.',
 };
 
+/*
 export const LEAGUE_PLAYTIME = {
 	name: "league-playtime",
 	description: "Check League of Legends playtime",
@@ -26,6 +27,7 @@ export const LEAGUE_PLAYTIME = {
 		}
 	],
 };
+*/
 
 export const QUANG_COMMAND = {
 	name: "quang",

@@ -78,42 +78,12 @@ export async function handleDiscordRequest(request, env) {
 				},
 			});
 		}
-		else if (commandName === "league-playtime") {
-			const gameName = json.data.options.find(o => o.name === "gamename").value;
-
-			const result = await getRiotStats(gameName, env.RIOT_API_KEY);
-
-			if (result.error) {
-				return Response.json({
-					type: 4,
-					data: { content: `Error: ${result.error}` },
-				});
-			}
-
-			return Response.json({
-				type: 4,
-				data: {
-					content:
-					`${result.gameName}#${result.tagLine}\n` +
-					`Playtime (last ${result.matchesAnalyzed} games): ${result.totalHours} hours\n` +
-					`Record: ${result.wins}W - ${result.losses}L`,
-				},
-			});
-		}
 		else if (commandName === "quang") {
 			return Response.json({
 				type: 4,
 				data: {
-					embeds: [
-						{
-							title: "QUANG!",
-							// The original image of QUANG, straight from the website
-							image: {
-								url: "https://media.mapotic.com/cdn-cgi/image/metadata=none,width=400,height=266,fit=crop/https://media.mapotic.com/media/image/geo/3413/288392/oedr1f_cb0frq_8mvflm_05022015_ocearch_westernaustralia_0648_mc9zybs.jpg",
-							},
-							color: 0x00AE86,
-						},
-					],
+					// Original image of Quang, straight from the website
+					content: "https://media.mapotic.com/cdn-cgi/image/metadata=none,width=400,height=266,fit=crop/https://media.mapotic.com/media/image/geo/3413/288392/oedr1f_cb0frq_8mvflm_05022015_ocearch_westernaustralia_0648_mc9zybs.jpg",
 				},
 			});
 		}
@@ -122,7 +92,7 @@ export async function handleDiscordRequest(request, env) {
 				type: 4,
 				data: {
 					// Minion laughing GIF
-					content: "https://images-ext-1.discordapp.net/external/tyYtJe4r4pZKCQjHqY8k5N5yfpH2MgqrZJ2tHy6yBHc/https/media.tenor.com/Heegf9LK-vIAAAPo/bahaha-lol.mp4",
+					content: "https://media.discordapp.net/attachments/1114377224099995650/1489341429531807764/minion.gif?ex=69d010cb&is=69cebf4b&hm=90b95cf16c5782f9c1cc91067b1e453c70f9b14be5e65fa969f372675528ed11&=",
 				},
 			});
 		}
