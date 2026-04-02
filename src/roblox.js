@@ -48,6 +48,8 @@ export async function getUserStatus(username) {
 	let placeMessage = null;
 
 	if (status === 2) {
+		placeMessage = getGameInfo(presence.universeId).name;
+		/*
 		// User is in a game
 		if (presence.universeId) {
 			const gameInfo = await getGameInfo(presence.universeId);
@@ -58,6 +60,7 @@ export async function getUserStatus(username) {
 		} else {
 			placeMessage = "(Game info unavailable)";
 		}
+		*/
 	}
 
 	return {

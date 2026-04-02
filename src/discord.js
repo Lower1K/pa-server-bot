@@ -157,7 +157,7 @@ export async function handleDiscordRequest(request, env) {
 				data: {
 					embeds: [
 						{
-							title: "Offline",
+							title: title,
 							description: message,
 							color: 0xFF0000,
 						},
