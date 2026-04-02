@@ -33,6 +33,9 @@ export async function handleDiscordRequest(request, env) {
 	if (json.type === 2) {
 		const commandName = json.data.name;
 
+		/*
+		TEXT BASED COMMANDS
+		*/
 		if (commandName === "test") {
 			  return Response.json({
 				  type: 4,
@@ -40,42 +43,6 @@ export async function handleDiscordRequest(request, env) {
 					  content: "Hello world!",
 				  },
 			  });
-		}
-		else if (commandName === "kevin-status") {
-			// Gets Kevin's current Roblox status
-			const result = await getUserStatus("Depsty1254");
-
-			if (result.error) {
-				return Response.json({
-					type: 4,
-					data: {
-						content: `Error: ${result.error}`,
-					},
-				});
-			}
-
-			let message = "";
-
-			switch (result.status) {
-				case 0:
-					message = "Kevin is not on Roblox.";
-					break;
-				case 1:
-					message = "Kevin is on Roblox.";
-					break;
-				case 2:
-					message = `Kevin is in a Roblox game. ${result.placeMessage}`;
-					break;
-				default:
-					message = "Kevin has an unknown Roblox status.";
-			}
-
-			return Response.json({
-				type: 4,
-				data: {
-					content: message,
-				},
-			});
 		}
 		else if (commandName === "hate-kevin") {
 			return Response.json({
@@ -89,21 +56,15 @@ export async function handleDiscordRequest(request, env) {
 				}
 			})
 		}
+		/*
+		IMAGE BASED COMMANDS
+		*/
 		else if (commandName === "quang") {
 			return Response.json({
 				type: 4,
 				data: {
 					// Original image of Quang, straight from the website
 					content: "https://media.mapotic.com/cdn-cgi/image/metadata=none,width=400,height=266,fit=crop/https://media.mapotic.com/media/image/geo/3413/288392/oedr1f_cb0frq_8mvflm_05022015_ocearch_westernaustralia_0648_mc9zybs.jpg",
-				},
-			});
-		}
-		else if (commandName === "erick") {
-			return Response.json({
-				type: 4,
-				data: {
-					// Minion laughing GIF
-					content: "https://media.discordapp.net/attachments/1114377224099995650/1489341429531807764/minion.gif?ex=69d010cb&is=69cebf4b&hm=90b95cf16c5782f9c1cc91067b1e453c70f9b14be5e65fa969f372675528ed11&=",
 				},
 			});
 		}
@@ -116,6 +77,9 @@ export async function handleDiscordRequest(request, env) {
 				},
 			});
 		}
+		/*
+		GIF BASED COMMANDS
+		*/
 		else if (commandName === "aatrox") {
 			// Schedule the deletion of the GIF
 			ctx.waitUntil((async () => {
@@ -132,6 +96,72 @@ export async function handleDiscordRequest(request, env) {
 				type: 4,
 				data: {
 					content: "https://media.discordapp.net/attachments/1487899760756134021/1489398014328967238/gyattrox.gif?ex=69d0457e&is=69cef3fe&hm=ccb1fcc30c564a34323c6618ea9097d39b2be73da4f2050d97e225c7c67973c1&=",
+				},
+			});
+		}
+		else if (commandName === "erick") {
+			return Response.json({
+				type: 4,
+				data: {
+					// Minion laughing GIF
+					content: "https://media.discordapp.net/attachments/1114377224099995650/1489341429531807764/minion.gif?ex=69d010cb&is=69cebf4b&hm=90b95cf16c5782f9c1cc91067b1e453c70f9b14be5e65fa969f372675528ed11&=",
+				},
+			});
+		}
+		/*
+		API BASED COMMANDS
+		*/
+		else if (commandName === "kevin-status") {
+			// Gets Kevin's current Roblox status
+			//const result = await getUserStatus("Depsty1254");
+			const result = await getUserStatus("LowerArc100000"); // TEMP testing var
+
+			if (result.error) {
+				return Response.json({
+					type: 4,
+					data: {
+						embeds: [
+							{
+								title: "Error",
+								description: result.error,
+								color: 0xFF0000,
+							},
+						],
+					},
+				});
+			}
+
+			let title = "";
+			let message = "";
+
+			switch (result.status) {
+				case 0:
+					title = "Offline";
+					message = "Kevin is not on Roblox.";
+					break;
+				case 1:
+					title = "Online";
+					message = "Kevin is on Roblox.";
+					break;
+				case 2:
+					title = "In Game";
+					message = `Kevin is in a Roblox game. ${result.placeMessage}`;
+					break;
+				default:
+					title = "Unknown";
+					message = "Kevin has an unknown Roblox status.";
+			}
+
+			return Response.json({
+				type: 4,
+				data: {
+					embeds: [
+						{
+							title: "Offline",
+							description: message,
+							color: 0xFF0000,
+						},
+					],
 				},
 			});
 		}

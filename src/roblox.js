@@ -25,10 +25,13 @@ export async function getUserPresence(userId) {
 }
 
 // Optional: fetch place info if available
-async function getPlaceInfo(placeId) {
-	if (!placeId) return null;
+async function getPlaceInfo(universeId) {
+	if (!universeId) return null;
 
-	const res = await fetch(`https://games.roblox.com/v1/games?placeIds=${placeId}`);
+	const res = await fetch(
+		`https://games.roblox.com/v1/games?universeIds=${universeId}`
+	);
+
 	const data = await res.json();
 	return data.data?.[0] || null;
 }
@@ -46,13 +49,14 @@ export async function getUserStatus(username) {
 
 	if (status === 2) {
 		// User is in a game
-		if (presence.placeId) {
-			const placeInfo = await getPlaceInfo(presence.placeId);
-			placeMessage = placeInfo
-			? `${placeInfo.name} (Place ID: ${presence.placeId})`
-			: `Place ID: ${presence.placeId}`;
+		if (presence.universeId) {
+			const gameInfo = await getGameInfo(presence.universeId);
+
+			placeMessage = gameInfo
+				? `${gameInfo.name}`
+				: "(Unknown game)";
 		} else {
-			placeMessage = "(Place ID unavailable)";
+			placeMessage = "(Game info unavailable)";
 		}
 	}
 

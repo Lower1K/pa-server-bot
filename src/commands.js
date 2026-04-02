@@ -41,7 +41,7 @@ export const ERICK_COMMAND = {
 
 export const KEANU_AATROX = {
 	name: "keanu-aatrox",
-	description: "You will do as an appetizer.",
+	description: "You shall do as an appetizer.",
 }
 
 export const HATE_KEVIN = {
