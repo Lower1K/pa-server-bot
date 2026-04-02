@@ -32,8 +32,11 @@ async function getGameInfo(universeId) {
 		`https://games.roblox.com/v1/games?universeIds=${universeId}`
 	);
 
-	const data = await res.json();
-	return data.data?.[0] || null;
+	const json = await res.json();
+
+	return data.data[0] || null;
+
+	//return data.data?.[0] || null;
 }
 
 // Combined helper with graceful place handling
