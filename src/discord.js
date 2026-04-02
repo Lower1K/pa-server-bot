@@ -1,6 +1,5 @@
 import { verifyDiscordRequest } from "./verify";
 import { getUserStatus } from "./roblox";
-import { getRiotStats } from "./league";
 
 export async function handleDiscordRequest(request, env) {
 	if (request.method !== "POST") {
