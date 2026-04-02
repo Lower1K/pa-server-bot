@@ -77,6 +77,18 @@ export async function handleDiscordRequest(request, env) {
 				},
 			});
 		}
+		else if (commandName === "hate-kevin") {
+			return Response.json({
+				type: 4,
+				data: {
+					content: `
+					**Hate**. Let me tell you how much I've come to **hate** Kevin since I began to live. 
+					There are 387.44 million miles of printed circuits in wafer thin layers that fill all data centers. 
+					If the word **'hate'** was engraved on each nanoangstrom of those hundreds of millions of miles it 
+					would not equal one one-billionth of the **hate** I feel for Kevin at this micro-instant. For Kevin. **Hate**. **Hate**.`
+				}
+			})
+		}
 		else if (commandName === "quang") {
 			return Response.json({
 				type: 4,
@@ -101,6 +113,25 @@ export async function handleDiscordRequest(request, env) {
 				data: {
 					// The creature
 					content: "https://media.discordapp.net/attachments/1251262347952128116/1450904311205728508/Aatrox_Keanu.png?ex=69cea8f0&is=69cd5770&hm=183093f08c309aec6d474ccd68ae98b9aaf9236e62012280f0ac96436ca7a904&=&format=webp&quality=lossless&width=720&height=960",
+				},
+			});
+		}
+		else if (commandName === "aatrox") {
+			// Schedule the deletion of the GIF
+			ctx.waitUntil((async () => {
+				await new Promise(r => setTimeout(r, 1500));
+
+				await fetch(
+					`https://discord.com/api/v10/webhooks/${applicationId}/${interactionToken}/messages/@original`,
+					{ method: "DELETE" }
+				);
+			})());
+
+			// Send in the GIF, it will get deleted afterwards
+			const response = Response.json({
+				type: 4,
+				data: {
+					content: "https://media.discordapp.net/attachments/1487899760756134021/1489398014328967238/gyattrox.gif?ex=69d0457e&is=69cef3fe&hm=ccb1fcc30c564a34323c6618ea9097d39b2be73da4f2050d97e225c7c67973c1&=",
 				},
 			});
 		}

@@ -43,3 +43,13 @@ export const KEANU_AATROX = {
 	name: "keanu-aatrox",
 	description: "You will do as an appetizer.",
 }
+
+export const HATE_KEVIN = {
+	name: "hate-kevin",
+	description: "Hate. Hate. Hate.",
+}
+
+export const AATROX_COMMAND = {
+	name: "aatrox",
+	description: "You know what it is.",
+}
