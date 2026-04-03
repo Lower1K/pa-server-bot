@@ -32,24 +32,24 @@ export const LEAGUE_PLAYTIME = {
 export const QUANG_COMMAND = {
 	name: "quang",
 	description: "QUANG!",
-}
+};
 
 export const ERICK_COMMAND = {
 	name: "erick",
 	description: "That's so Erick-core of you.",
-}
+};
 
 export const KEANU_AATROX = {
 	name: "keanu-aatrox",
 	description: "You shall do as an appetizer.",
-}
+};
 
 export const HATE_KEVIN = {
 	name: "hate-kevin",
 	description: "Hate. Hate. Hate.",
-}
+};
 
 export const AATROX_COMMAND = {
 	name: "aatrox",
 	description: "You know what it is.",
-}
+};
