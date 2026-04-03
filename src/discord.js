@@ -145,7 +145,14 @@ export async function handleDiscordRequest(request, env) {
 					break;
 				case 2:
 					title = "In Game";
-					message = `Kevin is in a Roblox game. ${result.placeMessage}`;
+					//message = `Kevin is in a Roblox game. ${result.placeMessage}`;
+					message = `
+					${result.status},
+					${result.placeId},
+					${result.universeId},
+					${result.lastOnline},
+					${result.placeMessage}
+					`;
 					break;
 				default:
 					title = "Unknown";
