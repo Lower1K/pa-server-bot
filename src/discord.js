@@ -113,8 +113,8 @@ export async function handleDiscordRequest(request, env) {
 		*/
 		else if (commandName === "kevin-status") {
 			// Gets Kevin's current Roblox status
-			//const result = await getUserStatus("Depsty1254");
-			const result = await getUserStatus("LowerArc100000"); // TEMP testing var
+			const result = await getUserStatus("Depsty1254");
+			//const result = await getUserStatus("LowerArc100000"); // TEMP testing var
 
 			if (result.error) {
 				return Response.json({
@@ -145,14 +145,7 @@ export async function handleDiscordRequest(request, env) {
 					break;
 				case 2:
 					title = "In Game";
-					//message = `Kevin is in a Roblox game. ${result.placeMessage}`;
-					message = `
-					${result.status},
-					${result.placeId},
-					${result.universeId},
-					${result.lastOnline},
-					${result.placeMessage}
-					`;
+					message = "Kevin is in a Roblox game.";
 					break;
 				default:
 					title = "Unknown";
