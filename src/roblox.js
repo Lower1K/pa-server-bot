@@ -51,15 +51,15 @@ export async function getUserStatus(username) {
 
 	if (status === 2) {
 		// User is in a game
-		if (presence.universeId) {
+		//if (presence.universeId) {
 			const gameInfo = await getGameInfo(presence.universeId);
 
 			placeMessage = gameInfo
 				? `${gameInfo.name}`
 				: "(Unknown game)";
-		} else {
+		/*} else {
 			placeMessage = "(Game info unavailable)";
-		}
+		}*/
 	}
 
 	return {
