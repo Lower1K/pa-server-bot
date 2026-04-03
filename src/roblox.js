@@ -26,7 +26,7 @@ export async function getUserPresence(userId) {
 
 // Optional: fetch place info if available
 async function getGameInfo(universeId) {
-	universeId = 7094518649;
+	universeId = "7094518649";
 	if (!universeId) return null;
 
 	const res = await fetch(
@@ -50,8 +50,6 @@ export async function getUserStatus(username) {
 	let placeMessage = null;
 
 	if (status === 2) {
-		placeMessage = getGameInfo(presence.universeId);
-		/*
 		// User is in a game
 		if (presence.universeId) {
 			const gameInfo = await getGameInfo(presence.universeId);
@@ -62,7 +60,6 @@ export async function getUserStatus(username) {
 		} else {
 			placeMessage = "(Game info unavailable)";
 		}
-		*/
 	}
 
 	return {
