@@ -57,4 +57,4 @@ export const AATROX_COMMAND = {
 export const HORSE_COMMAND = {
 	name: "horse",
 	description: "\'Fuck you\', said the fuck you horse.",
-}
+};
