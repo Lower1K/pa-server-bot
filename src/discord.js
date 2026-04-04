@@ -1,7 +1,7 @@
 import { verifyDiscordRequest } from "./verify";
 import { getUserStatus } from "./roblox";
 
-export async function handleDiscordRequest(request, env) {
+export async function handleDiscordRequest(request, env, ctx) {
 	if (request.method !== "POST") {
 		return new Response("Method not allowed", { status: 405 });
 	}
