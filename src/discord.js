@@ -94,7 +94,7 @@ export async function handleDiscordRequest(request, env, ctx) {
 
 			// Schedule the deletion of the GIF
 			ctx.waitUntil((async () => {
-				await new Promise(r => setTimeout(r, 1500));
+				await new Promise(r => setTimeout(r, 2500));
 
 				await fetch(
 					`https://discord.com/api/v10/webhooks/${applicationId}/${interactionToken}/messages/@original`,
