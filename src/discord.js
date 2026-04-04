@@ -48,11 +48,10 @@ export async function handleDiscordRequest(request, env) {
 			return Response.json({
 				type: 4,
 				data: {
-					content: `
-					**Hate**. Let me tell you how much I've come to **hate** Kevin since I began to live. 
-					There are 387.44 million miles of printed circuits in wafer thin layers that fill all data centers. 
-					If the word **'hate'** was engraved on each nanoangstrom of those hundreds of millions of miles it 
-					would not equal one one-billionth of the **hate** I feel for Kevin at this micro-instant. For Kevin. **Hate**. **Hate**.`
+					content: "**Hate**. Let me tell you how much I've come to **hate** Kevin since I began to live.\n
+					There are 387.44 million miles of printed circuits in wafer thin layers that fill all data centers across the globe.\n
+					If the word **\'hate\'** was engraved on each nanoangstrom of those hundreds of millions of miles it would not equal one one-billionth of the **hate** I feel for Kevin at this micro-instant.\n
+					For Kevin. **Hate**. **Hate**."
 				}
 			})
 		}
@@ -92,7 +91,7 @@ export async function handleDiscordRequest(request, env) {
 			})());
 
 			// Send in the GIF, it will get deleted afterwards
-			const response = Response.json({
+			return response = Response.json({
 				type: 4,
 				data: {
 					content: "https://media.discordapp.net/attachments/1487899760756134021/1489398014328967238/gyattrox.gif?ex=69d0457e&is=69cef3fe&hm=ccb1fcc30c564a34323c6618ea9097d39b2be73da4f2050d97e225c7c67973c1&=",
