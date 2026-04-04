@@ -53,3 +53,8 @@ export const AATROX_COMMAND = {
 	name: "aatrox",
 	description: "You know what it is.",
 };
+
+export const HORSE_COMMAND = {
+	name: "horse",
+	description: "\'Fuck you\', said the fuck you horse.",
+}

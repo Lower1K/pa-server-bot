@@ -55,7 +55,8 @@ export async function handleDiscordRequest(request, env, ctx) {
 				data: {
 					content: `**Hate**. Let me tell you how much I've come to **hate** <@${kevinUserId}> since I began to live.\n`+
 					"There are 387.44 million miles of printed circuits in wafer thin layers that fill all data centers across the globe.\n"+
-					`If the word **\'hate\'** was engraved on each nanoangstrom of those hundreds of millions of miles it would not equal one one-billionth of the **hate** I feel for <@${kevinUserId}> at this micro-instant.\n`+
+					`If the word **\'hate\'** was engraved on each nanoangstrom of those hundreds of millions of miles it would not equal\n`+
+					`one one-billionth of the **hate** I feel for <@${kevinUserId}> at this micro-instant.\n`+
 					`For <@${kevinUserId}>. **Hate**. **Hate**.`
 				}
 			})
@@ -106,7 +107,6 @@ export async function handleDiscordRequest(request, env, ctx) {
 
 			// Send in the GIF, it will get deleted afterwards
 			return response;
-			
 		}
 		else if (commandName === "erick") {
 			return Response.json({
@@ -114,6 +114,15 @@ export async function handleDiscordRequest(request, env, ctx) {
 				data: {
 					// Minion laughing GIF
 					content: "https://media.discordapp.net/attachments/1114377224099995650/1489341429531807764/minion.gif?ex=69d010cb&is=69cebf4b&hm=90b95cf16c5782f9c1cc91067b1e453c70f9b14be5e65fa969f372675528ed11&=",
+				},
+			});
+		}
+		else if (commandName === "horse") {
+			return Response.json({
+				type: 4,
+				data: {
+					// Horse middle-finger
+					content: "https://media.discordapp.net/attachments/1215052651159625873/1398088581272043540/Bb5Dz_4mUQxtVc10-ezgif.com-video-to-gif-converter.gif?ex=69d24b35&is=69d0f9b5&hm=c0d081a2910aa1c29571de45012c46785863dba9c4bae6a59ca127d4ad00304d&=",
 				},
 			});
 		}
