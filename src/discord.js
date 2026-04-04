@@ -80,6 +80,15 @@ export async function handleDiscordRequest(request, env) {
 		GIF BASED COMMANDS
 		*/
 		else if (commandName === "aatrox") {
+			// Create the response message
+			const response = Response.json({
+				type: 4,
+				data: {
+					content: "https://media.discordapp.net/attachments/1487899760756134021/1489398014328967238/gyattrox.gif?ex=69d0457e&is=69cef3fe&hm=ccb1fcc30c564a34323c6618ea9097d39b2be73da4f2050d97e225c7c67973c1&=",
+				},
+			});
+
+
 			// Schedule the deletion of the GIF
 			ctx.waitUntil((async () => {
 				await new Promise(r => setTimeout(r, 1500));
@@ -91,12 +100,8 @@ export async function handleDiscordRequest(request, env) {
 			})());
 
 			// Send in the GIF, it will get deleted afterwards
-			return response = Response.json({
-				type: 4,
-				data: {
-					content: "https://media.discordapp.net/attachments/1487899760756134021/1489398014328967238/gyattrox.gif?ex=69d0457e&is=69cef3fe&hm=ccb1fcc30c564a34323c6618ea9097d39b2be73da4f2050d97e225c7c67973c1&=",
-				},
-			});
+			return response;
+			
 		}
 		else if (commandName === "erick") {
 			return Response.json({
