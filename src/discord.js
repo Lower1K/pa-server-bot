@@ -48,13 +48,15 @@ export async function handleDiscordRequest(request, env, ctx) {
 			  });
 		}
 		else if (commandName === "hate-kevin") {
+			const kevinUserId = "1251196786723389515";
+
 			return Response.json({
 				type: 4,
 				data: {
-					content: "**Hate**. Let me tell you how much I've come to **hate** Kevin since I began to live.\n"+
+					content: `**Hate**. Let me tell you how much I've come to **hate** <@${kevinUserId}> since I began to live.\n`+
 					"There are 387.44 million miles of printed circuits in wafer thin layers that fill all data centers across the globe.\n"+
-					"If the word **\'hate\'** was engraved on each nanoangstrom of those hundreds of millions of miles it would not equal one one-billionth of the **hate** I feel for Kevin at this micro-instant.\n"+
-					"For Kevin. **Hate**. **Hate**."
+					`If the word **\'hate\'** was engraved on each nanoangstrom of those hundreds of millions of miles it would not equal one one-billionth of the **hate** I feel for <@${kevinUserId}> at this micro-instant.\n`+
+					`For <@${kevinUserId}>. **Hate**. **Hate**.`
 				}
 			})
 		}
