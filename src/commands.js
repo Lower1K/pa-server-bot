@@ -79,4 +79,4 @@ export const THREAT_COMMAND = {
 export const JANICE_CHEESE = {
 	name: "janice-cheese",
 	description: "Janice. Natural cheese.",
-}
+};
