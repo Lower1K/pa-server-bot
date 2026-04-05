@@ -183,6 +183,18 @@ export async function handleDiscordRequest(request, env, ctx) {
 				},
 			});
 		}
+		/*
+		VIDEO BASED COMMANDS
+		*/
+		else if (commandName === "skeleton") {
+			return Response.json({
+				type: 4,
+				data: {
+					// Skeleton spin video
+					content: "https://cdn.discordapp.com/attachments/1100940491765321801/1490170902783070248/videoplayback.mp4?ex=69d3154d&is=69d1c3cd&hm=ef2960ecc6c2f0cf91a617beffae5f1b23e56bdc6aa84775e4a39319799cfd81&",
+				}
+			})
+		}
 
 		// Default fallback
 		return Response.json({

@@ -58,3 +58,8 @@ export const HORSE_COMMAND = {
 	name: "horse",
 	description: "\'Fuck you\', said the fuck you horse.",
 };
+
+export const SKELETON_COMMAND = {
+	name: "skeleton",
+	description: "Spin.",
+}
