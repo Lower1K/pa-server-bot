@@ -70,7 +70,7 @@ export async function handleDiscordRequest(request, env, ctx) {
 					embeds: [
 						{
 							title: "Command List",
-							description: "/hate-kevin\n/quang\n/keanu-aatrox\n/aatrox\n/erick\n/horse\n/kevin-status\n/skeleton",
+							description: "/hate-kevin\n/quang\n/keanu-aatrox\n/aatrox\n/erick\n/horse\n/kevin-status\n/skeleton\n/janice-cheese",
 							color: 0xFF0000,
 						},
 					],
@@ -96,6 +96,37 @@ export async function handleDiscordRequest(request, env, ctx) {
 					// The creature
 					content: "https://media.discordapp.net/attachments/1251262347952128116/1450904311205728508/Aatrox_Keanu.png?ex=69cea8f0&is=69cd5770&hm=183093f08c309aec6d474ccd68ae98b9aaf9236e62012280f0ac96436ca7a904&=&format=webp&quality=lossless&width=720&height=960",
 				},
+			});
+		}
+		else if (commandName === "threat") {
+			// Create the response image of the Erick image
+			const response = Response.json({
+				type: 4,
+				data: {
+					content: "https://media.discordapp.net/attachments/1347637679126347787/1490184659030773840/Screenshot_2026-02-20_011616.png?ex=69d3221d&is=69d1d09d&hm=0c2c2cb38df85f26a37f5fa7d2ba12abd148490b725658884d4352a4131ab250&=&format=webp&quality=lossless",
+				}
+			});
+
+			// Schedule the deletion of the image
+			ctx.waitUntil((async () => {
+				await new Promise(r => setTimeout(r, 2500));
+
+				await fetch(
+					`https://discord.com/api/v10/webhooks/${applicationId}/${interactionToken}/messages/@original`,
+					{ method: "DELETE" }
+				);
+			})());
+
+			// Send in the GIF, it will get deleted afterwards
+			return response;
+		}
+		else if (commandName === "janice-cheese") {
+			// Sends the image of Janice Cheese
+			return response = Response.json({
+				type: 4,
+				data: {
+					content: "https://media.discordapp.net/attachments/1347637679126347787/1490184659298947224/Screenshot_2026-01-02_165915.png?ex=69d3221d&is=69d1d09d&hm=08b88871c4e53a68a9c13e8f385d5796301a279e00f4b935a3480f4c45578ca4&=&format=webp&quality=lossless",
+				}
 			});
 		}
 		/*

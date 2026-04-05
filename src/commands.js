@@ -70,3 +70,13 @@ export const LIST_COMMANDS = {
 	name: "commands",
 	description: "List all commands.",
 };
+
+export const THREAT_COMMAND = {
+	name: "threat",
+	description: "This is a threat.",
+};
+
+export const JANICE_CHEESE = {
+	name: "janice-cheese",
+	description: "Janice. Natural cheese.",
+}
