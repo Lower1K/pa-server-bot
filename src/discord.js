@@ -63,6 +63,20 @@ export async function handleDiscordRequest(request, env, ctx) {
 				}
 			})
 		}
+		else if (commandName === "commands") {
+			return Reponse.json({
+				type: 4,
+				data: {
+					embeds: [
+						{
+							title: "Command List",
+							description: "/hate-kevin\n/quang\n/keanu-aatrox\n/aatrox\n/erick\n/horse\n/kevin-status\n/skeleton",
+							color: 0xFF0000,
+						},
+					],
+				}
+			})
+		}
 		/*
 		IMAGE BASED COMMANDS
 		*/

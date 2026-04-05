@@ -64,4 +64,9 @@ export const HORSE_COMMAND = {
 export const SKELETON_COMMAND = {
 	name: "skeleton",
 	description: "Spin.",
-}
+};
+
+export const LIST_COMMANDS = {
+	name: "commands",
+	description: "List all commands.",
+};
