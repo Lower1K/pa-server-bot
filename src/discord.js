@@ -39,6 +39,7 @@ export async function handleDiscordRequest(request, env, ctx) {
 		/*
 		TEXT BASED COMMANDS
 		*/
+		/*
 		if (commandName === "test") {
 			  return Response.json({
 				  type: 4,
@@ -47,7 +48,8 @@ export async function handleDiscordRequest(request, env, ctx) {
 				  },
 			  });
 		}
-		else if (commandName === "hate-kevin") {
+		*/
+		if (commandName === "hate-kevin") {
 			const kevinUserId = "1251196786723389515";
 
 			return Response.json({

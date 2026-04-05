@@ -4,10 +4,12 @@
  */
 
 
+ /*
 export const TEST_COMMAND = {
 	name: 'test',
 	description: 'Sends a test message to the channel.',
 };
+*/
 
 export const KEVIN_COMMAND = {
 	name: 'kevin-status',
