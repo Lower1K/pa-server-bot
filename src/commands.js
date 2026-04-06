@@ -80,3 +80,8 @@ export const JANICE_CHEESE = {
 	name: "janice-cheese",
 	description: "Janice. Natural cheese.",
 };
+
+export const CAT_COMMAND = {
+	name: "quinn-cat",
+	description: "Sends in a random image of Quinn's cats.",
+};

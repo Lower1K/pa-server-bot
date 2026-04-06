@@ -1,5 +1,6 @@
 import { verifyDiscordRequest } from "./verify";
 import { getUserStatus } from "./roblox";
+import { quinnCats } from "./cats";
 
 export async function handleDiscordRequest(request, env, ctx) {
 	if (request.method !== "POST") {
@@ -126,6 +127,15 @@ export async function handleDiscordRequest(request, env, ctx) {
 				type: 4,
 				data: {
 					content: "https://media.discordapp.net/attachments/1347637679126347787/1490184659298947224/Screenshot_2026-01-02_165915.png?ex=69d3cadd&is=69d2795d&hm=7ec0a1bf9cffce80e52a05d736ff51ed01960f71cc287dd4829046efa2425dd6&=&format=webp&quality=lossless",
+				},
+			});
+		}
+		else if (commandName === "quinn-cat") {
+			// Sends a random image of Quinn's cats
+			return Response.json({
+				type: 4,
+				data: {
+					content: quinnCats(),
 				},
 			});
 		}
