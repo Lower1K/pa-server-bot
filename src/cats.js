@@ -53,8 +53,8 @@ const catArray = [
 ];
 
 // Gets a random image from the array and returns it
-export async function quinnCats() {
-	let catImage = catArray[Math.floor(Math.random * catArray.length)];
+export function quinnCats() {
+	let catImage = catArray[Math.floor(Math.random() * catArray.length)];
 
 	return catImage;
 }
