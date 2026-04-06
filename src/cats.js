@@ -56,5 +56,5 @@ const catArray = [
 export function quinnCats() {
 	let catIndex = Math.floor(Math.random() * catArray.length);
 
-	return { image: catArray[catIndex], index: catIndex };
+	return { catImage: catArray[catIndex], index: catIndex };
 }

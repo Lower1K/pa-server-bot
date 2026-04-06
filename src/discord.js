@@ -138,7 +138,7 @@ export async function handleDiscordRequest(request, env, ctx) {
 			const response = Response.json({
 				type: 4,
 				data: {
-					content: quinnCats(),
+					content: catImage,
 				},
 			});
 
