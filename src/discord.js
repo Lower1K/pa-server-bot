@@ -131,13 +131,31 @@ export async function handleDiscordRequest(request, env, ctx) {
 			});
 		}
 		else if (commandName === "quinn-cat") {
-			// Sends a random image of Quinn's cats
-			return Response.json({
+			// Cats the image and index from the cat function
+			const { catImage, index } = quinnCats();
+
+			// Create the response message with the image
+			const response = Response.json({
 				type: 4,
 				data: {
 					content: quinnCats(),
 				},
 			});
+
+			// If we get the 'Nancy' image, schedule its deletion
+			if (index === 42) {
+				ctx.waitUntil((async () => {
+					await new Promise(r => setTimeout(r, 7000));
+				
+					await fetch(
+						`https://discord.com/api/v10/webhooks/${applicationId}/${interactionToken}/messages/@original`,
+						{ method: "DELETE" }
+					);
+				})());
+			}
+
+			// Sends the message
+			return response;
 		}
 		/*
 		GIF BASED COMMANDS
