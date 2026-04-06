@@ -71,7 +71,7 @@ export async function handleDiscordRequest(request, env, ctx) {
 					embeds: [
 						{
 							title: "Command List",
-							description: "/aatrox\n/erick\n/hate-kevin\n/horse\n/janice-cheese\n/keanu-aatrox\n/kevin-status\n/quang\n/skeleton",
+							description: "/aatrox\n/erick\n/hate-kevin\n/horse\n/janice-cheese\n/keanu-aatrox\n/kevin-status\n/quang\n/quinn-cat\n/skeleton",
 							color: 0xFF0000,
 						},
 					],
