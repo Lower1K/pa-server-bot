@@ -122,10 +122,10 @@ export async function handleDiscordRequest(request, env, ctx) {
 		}
 		else if (commandName === "janice-cheese") {
 			// Sends the image of Janice Cheese
-			return response = Response.json({
+			return Response.json({
 				type: 4,
 				data: {
-					content: "https://media.discordapp.net/attachments/1347637679126347787/1490184659298947224/Screenshot_2026-01-02_165915.png?ex=69d3221d&is=69d1d09d&hm=08b88871c4e53a68a9c13e8f385d5796301a279e00f4b935a3480f4c45578ca4&=&format=webp&quality=lossless",
+					content: "https://media.discordapp.net/attachments/1347637679126347787/1490184659298947224/Screenshot_2026-01-02_165915.png?ex=69d3cadd&is=69d2795d&hm=7ec0a1bf9cffce80e52a05d736ff51ed01960f71cc287dd4829046efa2425dd6&=&format=webp&quality=lossless",
 				},
 			});
 		}
