@@ -61,7 +61,7 @@ export async function handleDiscordRequest(request, env, ctx) {
 					`one one-billionth of the **hate** I feel for <@${kevinUserId}> at this micro-instant.\n`+
 					`For <@${kevinUserId}>. **Hate**. **Hate**.`
 				}
-			})
+			});
 		}
 		else if (commandName === "commands") {
 			return Reponse.json({
@@ -75,7 +75,7 @@ export async function handleDiscordRequest(request, env, ctx) {
 						},
 					],
 				}
-			})
+			});
 		}
 		/*
 		IMAGE BASED COMMANDS
@@ -104,7 +104,7 @@ export async function handleDiscordRequest(request, env, ctx) {
 				type: 4,
 				data: {
 					content: "https://media.discordapp.net/attachments/1347637679126347787/1490184659030773840/Screenshot_2026-02-20_011616.png?ex=69d3221d&is=69d1d09d&hm=0c2c2cb38df85f26a37f5fa7d2ba12abd148490b725658884d4352a4131ab250&=&format=webp&quality=lossless",
-				}
+				},
 			});
 
 			// Schedule the deletion of the image
@@ -126,7 +126,7 @@ export async function handleDiscordRequest(request, env, ctx) {
 				type: 4,
 				data: {
 					content: "https://media.discordapp.net/attachments/1347637679126347787/1490184659298947224/Screenshot_2026-01-02_165915.png?ex=69d3221d&is=69d1d09d&hm=08b88871c4e53a68a9c13e8f385d5796301a279e00f4b935a3480f4c45578ca4&=&format=webp&quality=lossless",
-				}
+				},
 			});
 		}
 		/*
