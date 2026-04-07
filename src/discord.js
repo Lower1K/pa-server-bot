@@ -95,7 +95,7 @@ export async function handleDiscordRequest(request, env, ctx) {
 				type: 4,
 				data: {
 					// The creature
-					content: "https://imgur.com/aaXee8p",
+					content: "https://drive.google.com/file/d/1ohXPhK99NY6KZg-lAmizGUhUkNS8-8Vk/view?usp=drive_link",
 				},
 			});
 		}
@@ -104,7 +104,7 @@ export async function handleDiscordRequest(request, env, ctx) {
 			const response = Response.json({
 				type: 4,
 				data: {
-					content: "https://imgur.com/KjbU24Z",
+					content: "https://drive.google.com/file/d/1ckHXaMKNQ9Aul0YNw50eb-XvJla9_QfV/view?usp=drive_link",
 				},
 			});
 
@@ -126,7 +126,7 @@ export async function handleDiscordRequest(request, env, ctx) {
 			return Response.json({
 				type: 4,
 				data: {
-					content: "https://imgur.com/fMchAnR",
+					content: "https://drive.google.com/file/d/1PnfOrqLUFMwzrv9byyX9prLQaE4NBNYH/view?usp=drive_link",
 				},
 			});
 		}
@@ -165,7 +165,7 @@ export async function handleDiscordRequest(request, env, ctx) {
 			const response = Response.json({
 				type: 4,
 				data: {
-					content: "https://i.imgur.com/ISwBWFo.gif",
+					content: "https://drive.google.com/file/d/1E-IFN97lYyp1frqu9m6MPAaBDdJn3-OJ/view?usp=drive_link",
 				},
 			});
 
@@ -188,7 +188,7 @@ export async function handleDiscordRequest(request, env, ctx) {
 				type: 4,
 				data: {
 					// Minion laughing GIF
-					content: "https://imgur.com/FKQGWsA",
+					content: "https://drive.google.com/file/d/1oPt4smQVWDRNTvIo0cwCG3-GAtFOtk1z/view?usp=drive_link",
 				},
 			});
 		}
@@ -197,7 +197,7 @@ export async function handleDiscordRequest(request, env, ctx) {
 				type: 4,
 				data: {
 					// Horse middle-finger
-					content: "https://imgur.com/haQXYA7",
+					content: "https://drive.google.com/file/d/1MtbLDI1fOqqljmiV7oYaMNmuNXSyaUoU/view?usp=drive_link",
 				},
 			});
 		}
@@ -266,7 +266,7 @@ export async function handleDiscordRequest(request, env, ctx) {
 				type: 4,
 				data: {
 					// Skeleton spin video
-					content: "https://imgur.com/8Dmhvt8",
+					content: "https://drive.google.com/file/d/10wuLhOL9HEmPyMkYUEOxrE5y0mlOrDXi/view?usp=drive_link",
 				}
 			})
 		}
